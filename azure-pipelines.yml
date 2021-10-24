@@ -37,4 +37,9 @@ steps:
       echo $(build.artifactstagingdirectory)
       
       ls -lrt $(build.artifactstagingdirectory)
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'warfile'
+    publishLocation: 'Container'
   
