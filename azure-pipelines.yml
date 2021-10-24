@@ -23,11 +23,8 @@ steps:
 - task: CmdLine@2
   inputs:
     script:
-      echo "1"
       ls -lrt $(agent.builddirectory)
-      echo "2"|
       ls -lrt /home/vsts/work/1/s/webapp/target/
-      echo "3"
       ls -lrt  $(build.artifactstagingdirectory)
 - task: CopyFiles@2
   inputs:
