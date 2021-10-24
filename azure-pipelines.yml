@@ -20,10 +20,21 @@ steps:
     publishJUnitResults: true
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '$(agent.builddirectory)'
+    Contents: '**/.war'
+    TargetFolder: '$(build.artifactstagingdirectory)'
+    CleanTargetFolder: true
+    OverWrite: true
 - task: CmdLine@2
   inputs:
-    script: 'cp /home/vsts/work/1/s/webapp/target/webapp.war /home/vsts/work/1/a/'
-- task: CmdLine@2
-  inputs:
-    script: 'ls -lrt /home/vsts/work/1/a/'
+    script: |
+      echo $(agent.builddirectory)
+      
+      ls -lrt $(agent.builddirectory)
+      
+      echo $(build.artifactstagingdirectory)
+      
+      ls -lrt $(build.artifactstagingdirectory)
   
