@@ -23,10 +23,13 @@ steps:
 - task: CmdLine@2
   inputs:
     script: |
-      echo $pwd
-      
+      echo pwd
+      pwd
+      echo '/home/vsts/work/1/s/webapp/target'
       ls -lrt /home/vsts/work/1/s/webapp/target
+      echo '/home/vsts/work/1/s/'
       ls -lrt /home/vsts/work/1/s/
+      echo '/home/vsts/work/1/a/'
       ls -lrt /home/vsts/work/1/a/
 - task: CopyFiles@2
   inputs:
