@@ -23,4 +23,7 @@ steps:
 - task: CmdLine@2
   inputs:
     script: 'cp /home/vsts/work/1/s/webapp/target/webapp.war /home/vsts/work/1/a/'
+- task: CmdLine@2
+  inputs:
+    script: 'ls -lrt /home/vsts/work/1/a/'
   
