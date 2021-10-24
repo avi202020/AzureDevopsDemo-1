@@ -22,9 +22,18 @@ steps:
     goals: 'package'
 - task: CopyFiles@2
   inputs:
-    SourceFolder: '/home/vsts/work/1/s/webapp/target/'
+    SourceFolder: '/home/vsts/work/1/s/webapp/target'
     Contents: '**/.war'
-    TargetFolder: '/home/vsts/work/1/a/'
+    TargetFolder: '- task: CmdLine@2
+  inputs:
+    script: |
+      echo Write your commands here
+      pwd
+      ls -lrt /home/vsts/work/1/s/webapp/target
+      ls -lrt /home/vsts/work/1/s/
+      ls -lrt /home/vsts/work/1/a/
+      
+      echo Hello world'
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(build.artifactstagingdirectory)'
