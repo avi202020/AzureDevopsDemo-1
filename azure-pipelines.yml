@@ -27,8 +27,10 @@ steps:
       
       ls -lrt /home/vsts/work/1/s/webapp/target
       ls -lrt /home/vsts/work/1/s/
-      ls -lrt - task: CopyFiles@2
+      ls -lrt /home/vsts/work/1/a/
+- task: CopyFiles@2
   inputs:
-    SourceFolder: '/home/vsts/work/1/s/webapp/target/'
+    SourceFolder: '/home/vsts/work/1/s/webapp/target'
     Contents: '**/.war'
     TargetFolder: '/home/vsts/work/1/a/'
+  
